@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             //
+            $table->string('title',500)->change();
+            $table->boolean('is_feature')->default(false)->after('content');
         });
     }
 
@@ -23,6 +25,8 @@ return new class extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             //
+            $table->string('title')->change();
+            $table->dropColumn('is_feature');
         });
     }
 };
